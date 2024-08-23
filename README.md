@@ -14,4 +14,11 @@ Benchmark Test Block is a benchmarking module that can evaluate the performance 
 •	The benchmark block will output performance metrics after approximately 5 seconds of completing the transmission process by the transmitter. 
 
 ## Installation
-### make sure you have swig installed
+After downloading the gr-benchmark folder, use the fellowing code to install and add the Benchmark Test block to GNU Radio:
+```
+cd gr-benchmark
+make install  # may need sudo make install
+ldconfig      # may need sudo ldconfig 
+
+```
+The new block can be found in the block list under the "Benchmark Test" category.
