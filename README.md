@@ -24,16 +24,12 @@ cmake ..
 make
 make install  # may need sudo make install
 ldconfig      # may need sudo ldconfig
-
 ```
 The new block can be found in the block list under the "Benchmark Test" category.
 If the GNU Radio companion (GRC) running, you may need to restart the GRC to see the new blocks.
 
-**Requirements**
-• GNU Radio (3.10+)
-• Python (3.10+)
-• CMake (3.1.0+)
-• swig 
+**Requirements**:
+GNU Radio (3.10+), Python (3.10+), CMake (3.1.0+), swig 
 
 ## Parameters & Input/Output Signals
 ### Parameters
