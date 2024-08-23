@@ -52,6 +52,16 @@ The new block can be found in the block list under the "Benchmark Test" category
 -	***No. of discarded packets***: Number of packets you want to exclude from the error rate calculation for any reason.
 -	***Note***: The comment or note you want to add to the measured data stored in the output file. For example, you can add the GPS coordinates or address of the receiver.
 
+  ## Input:
+-	***in_sig***: The input port for the FFT samples of the received signal before demodulation. The FFT samples can be generated using the FFT block in GNU Radio with a size defined using the parameter “FFT vector length”. The FFT block output should be directly connected to the “in_sig” input port. However, the input data stream to the FFT block should be first converted to a vector of size “FFT vector length” using the “Stream to Vector” block. 
+
+-	***msg_in_ok & msg_in_fail***: These input message ports are used to receive the status of the CRC-checked packets which can be either correct (ok) or incorrect (fail). These input ports should be connected to the corresponding output ports of the “CRC Check” block in GNU Radio. The data stream entering the “CRC Check” block should be first converted to PDU messages using the “Tagged Stream to PDU” block which is connected to the last point in the receiver GRC flowgraph just before performing the CRC check. 
+
+## Output:
+-	***out_sig***: This port can be used to visualize the frequency spectrum of the received signal averaged over multiple readings defined using the parameter “No. of FFT iterations”. It can be connected to the “GUI vector Sink” block to plot the output vectors of data after adjusting the “Vector Size” parameter to “FFT vector length”.
+
+
+
 
 
 
