@@ -1,0 +1,14 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+authors:
+- family-names: "Al-Zubi"
+  given-names: "Nuneer"
+  orcid: "https://orcid.org/0000-0002-4792-7386"
+- family-names: "Alouini"
+  given-names: "Mohamed-Slim"
+  orcid: "https://orcid.org/0000-0003-4827-1793"
+title: "Benchmark Module for Performance Evaluation of Over-the-Air SDR-Based Communcation Systems in GNU Radio"
+version: 2.0.4
+doi: 
+date-released: 
+url: "https://github.com/github-linguist/linguist"
