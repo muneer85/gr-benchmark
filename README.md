@@ -60,6 +60,13 @@ The new block can be found in the block list under the "Benchmark Test" category
 ## Output:
 -	***out_sig***: This port can be used to visualize the frequency spectrum of the received signal averaged over multiple readings defined using the parameter “No. of FFT iterations”. It can be connected to the “GUI vector Sink” block to plot the output vectors of data after adjusting the “Vector Size” parameter to “FFT vector length”.
 
+## Example Flowgraph 
+
+### GFSK Transmitter Flowgraph 
+
+### GFSK Receiver Flowgraph 
+
+### Connection of The Benchmark Test Block and the Receiver 
 
 
 
