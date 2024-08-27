@@ -64,15 +64,6 @@ On the receiver side, as shown in Fig. 2, the received complex signal by the USR
 
 The Benchmark Test block should be connected to the receiver GRC flowgraph as illustrated in Fig. 1. The user should first run the receiver flowgraph before starting data transmission by the transmitter. The data transmission process should be for a specific period, i.e., the transmitter should stop transmission after some time. The Benchmark Test block will export the performance metrics after completing the transmission process by the transmitter, i.e., after 5 seconds approximately. 
 
-The output performance data and status of each received packet will be displayed in the GRC console window as shown in Fig. 5.
-
-
-Fig. 4: A sample of the exported perfromance data in the output CSV file.
-
-Fig. 4.	A screenshot for a sample of the performance metrics displayed in the  GRC console window.
-
-In addition, detailed data of the measured performance metrics and some configuration parameters will be automatically exported to an external CSV file chosen using the parameter “output file” in the Benchmark Test block. This file contains the following information: date. time, total duration, throughput, total received bytes, PER, PLR, SNR, correct received packets, incorrect received packets, latency (packet delivery time), total transmitted packets, packet (payload) length, frequency, channel bandwidth, sample rate, transmit power, antenna gain, and notes. The receiver GRC flowgraph can be kept running to receive a new packet measurement. Any new performance data measured by the Benchmark Test block will be appended as a new row in the same output file if it has already been created before.  Figure 5 shows some samples of measured performance data in the output CSV file. The first two rows represent measurements for the transmission of the text file while the remaining rows represent the measurements of transmission of the waveform audio file. We have successfully received both files which are stored using the file sink block at the receiver. 
-
 TABLE I. 	PARAMETERS USED IN THE OVER-THE-AIR DATA TRANSMISSION EXPERIMENT
 |Parameter |Value|Unit|Description|
 |:-----:|:-----:|:-----:|:-----:|
@@ -90,11 +81,23 @@ TABLE I. 	PARAMETERS USED IN THE OVER-THE-AIR DATA TRANSMISSION EXPERIMENT
 |gain_tx|0.1, 0.5|-|Normalized gain of the transmitter USRP|
 |gain_rx|1|-|Normalized gain of the receiver USRP|
 |Distance|5|m|Distance between the transmitter and the receiver| 
-|Antenna Gian|3|dBi|Gain of transmitter and receiver Antenna |
+|Antenna Gian|3|dBi|Gain of transmitter and receiver Antenna|
 
+
+The output performance data and status of each received packet will be displayed in the GRC console window as shown in Figure 4.
+
+![Alt text](images/fig5.jpg)
+
+Fig. 4.	A screenshot for a sample of the performance metrics displayed in the GRC console window.
+
+In addition, detailed data of the measured performance metrics and some configuration parameters will be automatically exported to an external CSV file chosen using the parameter “output file” in the Benchmark Test block. This file contains the following information: date. time, total duration, throughput, total received bytes, PER, PLR, SNR, correct received packets, incorrect received packets, latency (packet delivery time), total transmitted packets, packet (payload) length, frequency, channel bandwidth, sample rate, transmit power, antenna gain, and notes. The receiver GRC flowgraph can be kept running to receive a new packet measurement. Any new performance data measured by the Benchmark Test block will be appended as a new row in the same output file if it has already been created before.  Figure 5 shows some samples of measured performance data in the output CSV file. The first two rows represent measurements for the transmission of the text file while the remaining rows represent the measurements of transmission of the waveform audio file. We have successfully received both files which are stored using the file sink block at the receiver. 
+
+![Alt text](images/fig4.jpg)
+
+Fig. 5: A sample of the exported perfromance data in the output CSV file.
 
 ### Fig.1 : GFSK Transmitter Flowgraph 
-![Alt text](images/fig1.jpg){width=10 height=10}
+![Alt text](images/fig1.jpg)
 
 ### Fig. 2: GFSK Receiver Flowgraph 
 ![Alt text](images/fig2.jpg)
