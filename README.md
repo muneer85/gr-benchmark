@@ -68,14 +68,10 @@ The Benchmark Test block can work with various communication systems that use th
 |BW|500|KHz|Channel bandwidth|
 |Mod_order|2|-|Modulation order|
 |sps|4|-|Number of samples per symbol|
-|file_size|Text file: 516096,  
-Audio file: 188416|bytes	Size of the transmitted file|
+|file_size|Text file: 516096, Audio file: 188416|bytes|	Size of the transmitted file|
 |Num_sent_pkts|1,032|-|Number of sent packets|
 |pck_len|500|bytes|Packet length|
-|access_key|'11100001
-01011010
-11101000
-10010011'|-|Access code|
+|access_key|'11100001010110101110100010010011'|-|Access code|
 |FFT_Iter|10|-|Number of iterations used for averaging the FFT samples|
 |gain_tx|0.1, 0.5|-|Normalized gain of the transmitter USRP|
 |gain_rx|1|-|Normalized gain of the receiver USRP|
