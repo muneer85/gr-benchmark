@@ -60,8 +60,8 @@ GNU Radio (3.10+), Python (3.10+), CMake (3.1.0+), swig
 ## Example Flowgraph 
 The Benchmark Test block can work with various communication systems that use the CRC code in the transmitted packets. Here, we provide an example to show how to use the benchmark test block. In this example, we implement the GRC flowgraphs for the transmitter and the receiver using GFSK modulation as shown in Figures 1 and 2, respectively. We run the GRC flowgraphs of transmitter and receiver on two N210 USRP devices connected to omnidirectional antennas (VERT-2450) separated by a distance of 5m. In this experiment, we transmit the data over the unlicensed 2.4 GHz frequency band using 500 KHz channel bandwidth. The system parameters used in this example are listed in Table I. We make these flowgraphs as simple as possible because the main goal of this example is to demonstrate how the Benchmark tool works. The file source block imports the file we want to transmit. In this example, we transmit both text and waveform audio files. The text file contains a repeated biography of the Italian inventor Guglielmo Marconi who sent the first radio signal. Other file formats can be also sent using the same system. The file data is split into payloads of size equal to the “pck_len” parameter. The CRC code is generated using the “Stream CRC32” block and appended to the payload. Then, the header is created using the “Protocol formatter” block and attached with the payload to finally form packets ready for the modulation process. The generated packets are modulated using the GFSK Mod block and then fed into the USRP Sink to be transmitted via the USRP radio hardware. 
 
-Parameter |	Value |	Unit | Description |
-|-----|-----|-----|-----|
+|Parameter |Value|Unit|Description|
+|:-----:|:-----:|:-----:|:-----:|
 |Samp_rate|1|Msps|Sampling rate|
 |Vector_Size|1024|-|FFT Vector length|
 |f|2.4|GHz|Center frequency| 
