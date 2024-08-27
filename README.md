@@ -83,10 +83,8 @@ TABLE I. 	PARAMETERS USED IN THE OVER-THE-AIR DATA TRANSMISSION EXPERIMENT
 ### GFSK Transmitter Flowgraph 
 ![Alt text](images/fig1.jpg)
 
-
-
-
 ### GFSK Receiver Flowgraph 
+![Alt text](images/fig2.jpg)
 
 ### Connection of The Benchmark Test Block and the Receiver 
 
