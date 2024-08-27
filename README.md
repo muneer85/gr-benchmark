@@ -49,12 +49,12 @@ GNU Radio (3.10+), Python (3.10+), CMake (3.1.0+), swig, Python libraries [datet
 -	***No. of discarded packets***: Number of packets you want to exclude from the error rate calculation for any reason.
 -	***Note***: The comment or note you want to add to the measured data stored in the output file. For example, you can add the GPS coordinates or address of the receiver.
 
-  ## Input:
+  ### Input:
 -	***in_sig***: The input port for the FFT samples of the received signal before demodulation. The FFT samples can be generated using the FFT block in GNU Radio with a size defined using the parameter “FFT vector length”. The FFT block output should be directly connected to the “in_sig” input port. However, the input data stream to the FFT block should be first converted to a vector of size “FFT vector length” using the “Stream to Vector” block. 
 
 -	***msg_in_ok & msg_in_fail***: These input message ports are used to receive the status of the CRC-checked packets which can be either correct (ok) or incorrect (fail). These input ports should be connected to the corresponding output ports of the “CRC Check” block in GNU Radio. The data stream entering the “CRC Check” block should be first converted to PDU messages using the “Tagged Stream to PDU” block which is connected to the last point in the receiver GRC flowgraph just before performing the CRC check. 
 
-## Output:
+### Output:
 -	***out_sig***: This port can be used to visualize the frequency spectrum of the received signal averaged over multiple readings defined using the parameter “No. of FFT iterations”. It can be connected to the “GUI vector Sink” block to plot the output vectors of data after adjusting the “Vector Size” parameter to “FFT vector length”.
 
 ## Example: Over-the-Air Experiment  
@@ -85,30 +85,25 @@ TABLE I. 	PARAMETERS USED IN THE OVER-THE-AIR DATA TRANSMISSION EXPERIMENT
 
 The output performance data and status of each received packet will be displayed in the GRC console window as shown in Figure 4.
 
-<img src="images/fig5.jpg" align="center" height="300" width="250" />
+<img src="images/fig5.jpg" align="center" align="center" height="300" width="250" />
 Fig. 4.	A screenshot for a sample of the performance metrics displayed in the GRC console window.
 
 In addition, detailed data of the measured performance metrics and some configuration parameters will be automatically exported to an external CSV file chosen using the parameter “output file” in the Benchmark Test block. This file contains the following information: date. time, total duration, throughput, total received bytes, PER, PLR, SNR, correct received packets, incorrect received packets, latency (packet delivery time), total transmitted packets, packet (payload) length, frequency, channel bandwidth, sample rate, transmit power, antenna gain, and notes. The receiver GRC flowgraph can be kept running to receive a new packet measurement. Any new performance data measured by the Benchmark Test block will be appended as a new row in the same output file if it has already been created before.  Figure 5 shows some samples of measured performance data in the output CSV file. The first two rows represent measurements for the transmission of the text file while the remaining rows represent the measurements of transmission of the waveform audio file. We have successfully received both files which are stored using the file sink block at the receiver. 
 
-<img src="images/fig4.jpg" align="center" height="100" width="1000" />
+<img src="images/fig4.jpg" align="center" align="center" height="100" width="1000" />
 
 Fig. 5: A sample of the exported perfromance data in the output CSV file.
 
-<img src="images/fig1.jpg" align="center" height="400" width="700" />
+<img src="images/fig1.jpg" align="center" align="center" height="400" width="700" />
 
 Fig.1 : GFSK Transmitter Flowgraph 
 
-<img src="images/fig2.jpg" align="center" height="400" width="700" />
+<img src="images/fig2.jpg" align="center" align="center" height="400" width="700" />
 
 Fig. 2: GFSK Receiver Flowgraph
 
-<img src="images/fig3.jpg" align="center" height="300" width="600" />
+<img src="images/fig3.jpg" align="center" align="center" height="300" width="600" />
 
 Fig. 3: Connection of The Benchmark Test Block and the Receiver 
-
-
-
-
-
 
 ##
