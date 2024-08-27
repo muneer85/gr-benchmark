@@ -26,7 +26,7 @@ make install  # may need sudo make install
 ldconfig      # may need sudo ldconfig
 ```
 The new block can be found in the block list under the "Benchmark Test" category.
-If the GNU Radio companion (GRC) running, you may need to restart the GRC to see the new blocks.
+If the GNU Radio companion (GRC) is running, you may need to restart the GRC to find the new blocks.
 
 **Requirements**:
 GNU Radio (3.10+), Python (3.10+), CMake (3.1.0+), swig 
@@ -58,6 +58,31 @@ GNU Radio (3.10+), Python (3.10+), CMake (3.1.0+), swig
 -	***out_sig***: This port can be used to visualize the frequency spectrum of the received signal averaged over multiple readings defined using the parameter “No. of FFT iterations”. It can be connected to the “GUI vector Sink” block to plot the output vectors of data after adjusting the “Vector Size” parameter to “FFT vector length”.
 
 ## Example Flowgraph 
+The Benchmark Test block can work with various communication systems that use the CRC code in the transmitted packets. Here, we provide an example to show how to use the benchmark test block. In this example, we implement the GRC flowgraphs for the transmitter and the receiver using GFSK modulation as shown in Figures 1 and 2, respectively. We run the GRC flowgraphs of transmitter and receiver on two N210 USRP devices connected to omnidirectional antennas (VERT-2450) separated by a distance of 5m. In this experiment, we transmit the data over the unlicensed 2.4 GHz frequency band using 500 KHz channel bandwidth. The system parameters used in this example are listed in Table I. We make these flowgraphs as simple as possible because the main goal of this example is to demonstrate how the Benchmark tool works. The file source block imports the file we want to transmit. In this example, we transmit both text and waveform audio files. The text file contains a repeated biography of the Italian inventor Guglielmo Marconi who sent the first radio signal. Other file formats can be also sent using the same system. The file data is split into payloads of size equal to the “pck_len” parameter. The CRC code is generated using the “Stream CRC32” block and appended to the payload. Then, the header is created using the “Protocol formatter” block and attached with the payload to finally form packets ready for the modulation process. The generated packets are modulated using the GFSK Mod block and then fed into the USRP Sink to be transmitted via the USRP radio hardware. 
+
+Parameter |	Value |	Unit | Description |
+|-----|-----|-----|-----|
+Samp_rate	1	Msps	Sampling rate
+Vector_Size	1024	-	FFT Vector length
+f	2.4	GHz 	Center frequency 
+BW	500	KHz	Channel bandwidth
+Mod_order	2	-	Modulation order
+sps	4	-	Number of samples per symbol
+file_size	Text file: 516096  
+Audio file:
+ 188416	bytes	Size of the transmitted file
+Num_sent_pkts	1,032	-	Number of sent packets
+pck_len	500	bytes	Packet length
+access_key	'11100001
+01011010
+11101000
+10010011'	-	Access code
+FFT_Iter	10	-	Number of iterations used for averaging the FFT samples
+gain_tx	0.1, 0.5	-	Normalized gain of the transmitter USRP
+gain_rx	1	-	Normalized gain of the receiver USRP
+Distance 	5	m	Distance between the transmitter and the receiver 
+Antenna Gian	3	dBi	Gain of transmitter and receiver Antenna 
+
 
 ### GFSK Transmitter Flowgraph 
 
