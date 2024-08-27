@@ -29,7 +29,7 @@ The new block can be found in the block list under the "Benchmark Test" category
 If the GNU Radio companion (GRC) is running, you may need to restart the GRC to find the new blocks.
 
 **Requirements**:
-GNU Radio (3.10+), Python (3.10+), CMake (3.1.0+), swig 
+GNU Radio (3.10+), Python (3.10+), CMake (3.1.0+), swig, Paython libraries [datetime, numbpy, time, csv, io, os, math, pytz]
 
 ## Parameters & Input/Output Signals
 ### Parameters
