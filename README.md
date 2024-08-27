@@ -81,7 +81,7 @@ TABLE I. 	PARAMETERS USED IN THE OVER-THE-AIR DATA TRANSMISSION EXPERIMENT
 
 
 ### GFSK Transmitter Flowgraph 
-![Alt text](images/fig1.jpg)
+![Alt text](images/fig1.jpg){width=10 height=10}
 
 ### GFSK Receiver Flowgraph 
 ![Alt text](images/fig2.jpg)
