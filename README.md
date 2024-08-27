@@ -96,12 +96,15 @@ In addition, detailed data of the measured performance metrics and some configur
 Fig. 5: A sample of the exported perfromance data in the output CSV file.
 
 ![Alt text](images/fig1.jpg)
+
 Fig.1 : GFSK Transmitter Flowgraph 
 
 ![Alt text](images/fig2.jpg)
+
 Fig. 2: GFSK Receiver Flowgraph 
 
 ![Alt text](images/fig3.jpg)
+
 Fig. 3: Connection of The Benchmark Test Block and the Receiver 
 
 
