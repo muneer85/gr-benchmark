@@ -1,0 +1,6 @@
+/*!
+ * \defgroup block GNU Radio BENCHMARK_TEST C++ Signal Processing Blocks
+ * \brief All C++ blocks that can be used from the BENCHMARK_TEST GNU Radio
+ *        module are listed here or in the subcategories below.
+ *
+ */

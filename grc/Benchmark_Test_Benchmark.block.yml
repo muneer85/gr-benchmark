@@ -1,0 +1,114 @@
+id: Benchmark_Test_Benchmark
+label: Benchmark Test
+category: '[Benchmark Test]'
+
+templates:
+  imports: from gnuradio import Benchmark_Test
+  make: Benchmark_Test.Benchmark(${file_out}, ${time_zone}, ${test_mode}, ${Num_sent_Packets}, ${packet_length}, ${vector_size}, ${iter_avg}, ${ch_bw}, ${freq_center}, ${sample_rate}, ${tx_power}, ${Ant_gain}, ${N_disc_packtet}, ${Note}, ${mod_order})
+
+#  Make one 'parameters' list entry for every parameter you want settable from the GUI.
+#     Keys include:
+#     * id (makes the value accessible as keyname, e.g. in the make entry)
+#     * label (label shown in the GUI)
+#     * dtype (e.g. int, float, complex, byte, short, xxx_vector, ...)
+#     * default
+parameters:
+- id: file_out
+  label: Output file 
+  dtype: file_save
+  default: 'output.csv'
+- id: time_zone
+  label: Time zone
+  dtype: string
+  default: 'Asia/Amman'
+- id: test_mode
+  label: Test mode 
+  dtype: enum
+  options: [0, 1]
+  option_labels: ["Over-the-Air", "Simulation"]
+  default: 0
+- id: mod_order
+  label: Modulation order
+  dtype: int
+  default: 2   
+- id: Num_sent_Packets
+  label: Number of sent packets 
+  dtype: int
+  default: 1000
+- id: packet_length 
+  label: Packet length in bytes 
+  dtype: int
+  default: 10
+- id: vector_size 
+  label: FFT vector length 
+  dtype: int
+  default: 1024
+- id: iter_avg 
+  label: No. of FFT iterations
+  dtype: int
+  default: 10
+- id: ch_bw 
+  label: Channel BW in Hz 
+  dtype: float
+  default: 100000
+- id: freq_center
+  label: Center frequency in Hz 
+  dtype: float
+  default: 500000000
+- id: sample_rate
+  label: Sample rate in sample/s 
+  dtype: float
+  default: 200e3  
+- id: tx_power
+  label: TX power in dBm or dB
+  dtype: string
+  default: '10 dBm'    
+- id: Ant_gain
+  label: Ant. gain in dBi or dBd
+  dtype: string
+  default: '0 dBi'    
+- id: N_disc_packtet 
+  label: No. of discarded packets 
+  dtype: int
+  default: 0     
+- id: Note
+  label: Note 
+  dtype: string
+  default: '' 
+  
+#  Make one 'inputs' list entry per input and one 'outputs' list entry per output.
+#  Keys include:
+#      * label (an identifier for the GUI)
+#      * domain (optional - stream or message. Default is stream)
+#      * dtype (e.g. int, float, complex, byte, short, xxx_vector, ...)
+#      * vlen (optional - data stream vector length. Default is 1)
+#      * optional (optional - set to 1 for optional inputs. Default is 0)
+inputs:
+- label: in_sig
+  domain: stream
+  dtype: complex
+  vlen: ${vector_size}
+- label: msg_in_ok
+  domain: message
+  dtype: byte
+- label: msg_in_fail
+  domain: message
+  dtype: byte 
+
+outputs:
+- label: out_sig
+  domain: stream
+  dtype: float
+  vlen: ${vector_size}
+
+documentation: |-
+ This Block is a benchmarking module that can evaluate the performance of wireless communication systems over the air using the GNU Radio Companion (GRC). This block can be used to obtain the following performance metrics in a realistic communication channel: Packet Error Rate (PER), Packet Loss Rate (PLR), Signal-to-Noise Ratio (SNR), Latency, and Throughput. In addition, it provides information about the transmission duration, the correctly/incorrectly received packets, and the total received data size. The output data is displayed in the GRC console window and stored in an external CSV file with more details.
+    
+ For more details, visit the following webpage:
+    
+ https://github.com/muneer85/gr-benchmark
+
+
+#  'file_format' specifies the version of the GRC yml format used in the file
+#  and should usually not be changed.
+file_format: 1
