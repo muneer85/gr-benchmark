@@ -57,7 +57,7 @@ GNU Radio (3.10+), Python (3.10+), CMake (3.1.0+), swig, Python libraries [datet
 ## Output:
 -	***out_sig***: This port can be used to visualize the frequency spectrum of the received signal averaged over multiple readings defined using the parameter “No. of FFT iterations”. It can be connected to the “GUI vector Sink” block to plot the output vectors of data after adjusting the “Vector Size” parameter to “FFT vector length”.
 
-## Example Flowgraph 
+## Example: Over-the-Air Experiment  
 The Benchmark Test block can work with various communication systems that use the CRC code in the transmitted packets. Here, we provide an example to show how to use the benchmark test block. In this example, we implement the GRC flowgraphs for the transmitter and the receiver using GFSK modulation as shown in Figures 1 and 2, respectively. We run the GRC flowgraphs of transmitter and receiver on two N210 USRP devices connected to omnidirectional antennas (VERT-2450) separated by a distance of 5m. In this experiment, we transmit the data over the unlicensed 2.4 GHz frequency band using 500 KHz channel bandwidth. The system parameters used in this example are listed in Table I. We make these flowgraphs as simple as possible because the main goal of this example is to demonstrate how the Benchmark tool works. The file source block imports the file we want to transmit. In this example, we transmit both text and waveform audio files. The text file contains a repeated biography of the Italian inventor Guglielmo Marconi who sent the first radio signal. Other file formats can be also sent using the same system. The file data is split into payloads of size equal to the “pck_len” parameter. The CRC code is generated using the “Stream CRC32” block and appended to the payload. Then, the header is created using the “Protocol formatter” block and attached with the payload to finally form packets ready for the modulation process. The generated packets are modulated using the GFSK Mod block and then fed into the USRP Sink to be transmitted via the USRP radio hardware. 
 
 On the receiver side, as shown in Fig. 2, the received complex signal by the USRP source is first demodulated using the GFSK Dem block. Also, the output of the USRP source is fed into the Benchmark Test block by connecting the “FFT_In” virtual sink with the corresponding virtual source shown in Fig. 1. Then, the access code is used to extract the payloads from the demodulated data. The extracted payloads (before CRC check) are fed into the Benchmark Test block via the “CRC_In” virtual Sink connecting to the corresponding virtual source in the CRC flowgraph shown in Fig. 1. Also, the payloads are checked using the “Stream CRC32” block and then the correctly received payload data is stored in the output file defined in the File Sink block.
@@ -92,7 +92,8 @@ Fig. 4.	A screenshot for a sample of the performance metrics displayed in the GR
 
 In addition, detailed data of the measured performance metrics and some configuration parameters will be automatically exported to an external CSV file chosen using the parameter “output file” in the Benchmark Test block. This file contains the following information: date. time, total duration, throughput, total received bytes, PER, PLR, SNR, correct received packets, incorrect received packets, latency (packet delivery time), total transmitted packets, packet (payload) length, frequency, channel bandwidth, sample rate, transmit power, antenna gain, and notes. The receiver GRC flowgraph can be kept running to receive a new packet measurement. Any new performance data measured by the Benchmark Test block will be appended as a new row in the same output file if it has already been created before.  Figure 5 shows some samples of measured performance data in the output CSV file. The first two rows represent measurements for the transmission of the text file while the remaining rows represent the measurements of transmission of the waveform audio file. We have successfully received both files which are stored using the file sink block at the receiver. 
 
-![Alt text](images/fig4.jpg)
+<img src="images/fig4.jpg" width="200" />
+
 Fig. 5: A sample of the exported perfromance data in the output CSV file.
 
 ![Alt text](images/fig1.jpg)
@@ -101,7 +102,7 @@ Fig.1 : GFSK Transmitter Flowgraph
 
 ![Alt text](images/fig2.jpg)
 
-Fig. 2: GFSK Receiver Flowgraph 
+Fig. 2: GFSK Receiver Flowgraph
 
 ![Alt text](images/fig3.jpg)
 
