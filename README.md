@@ -69,13 +69,13 @@ Fig. 3: Connection of The Benchmark Test Block and the Receiver
 
 The output performance data and status of each received packet will be displayed in the GRC console window as shown in Figure 4.
 
-<img src="images/fig4.jpg" align="center" align="center" height="300" width="250" />
+<img src="images/fig4.jpg" align="center" align="center" height="100" width="1000" />
 
 Fig. 4.	A screenshot for a sample of the performance metrics displayed in the GRC console window.
 
 In addition, detailed data of the measured performance metrics and some configuration parameters will be automatically exported to an external CSV file chosen using the parameter “output file” in the Benchmark Test block. This file contains the following information: date. time, total duration, throughput, total received bytes, PER, PLR, SNR, correct received packets, incorrect received packets, latency (packet delivery time), total transmitted packets, packet (payload) length, frequency, channel bandwidth, sample rate, transmit power, antenna gain, and notes. The receiver GRC flowgraph can be kept running to receive a new packet measurement. Any new performance data measured by the Benchmark Test block will be appended as a new row in the same output file if it has already been created before.  Figure 5 shows some samples of measured performance data in the output CSV file. The first two rows represent measurements for the transmission of the text file while the remaining rows represent the measurements of transmission of the waveform audio file. We have successfully received both files which are stored using the file sink block at the receiver. 
 
-<img src="images/fig5.jpg" align="center" align="center" height="100" width="1000" />
+<img src="images/fig5.jpg" align="center" align="center" height="300" width="250" />
 
 Fig. 5: A sample of the exported perfromance data in the output CSV file.
 
