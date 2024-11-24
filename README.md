@@ -22,8 +22,8 @@ mkdir build
 cd build
 cmake ..
 make
-make install  # may need sudo make install
-ldconfig      # may need sudo ldconfig
+make install  # If it doesn't work, use  sudo make install
+ldconfig      # If it doesn't work, use  sudo ldconfig
 ```
 The new block can be found in the block list under the "Benchmark Test" category.
 If the GNU Radio companion (GRC) is running, you may need to restart the GRC to find the new blocks.
