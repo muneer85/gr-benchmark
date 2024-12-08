@@ -106,4 +106,4 @@ Fig. 5: A sample of the exported perfromance data in the output CSV file.
 -	***out_sig***: This port can be used to visualize the frequency spectrum of the received signal averaged over multiple readings defined using the parameter “No. of FFT iterations”. It can be connected to the “GUI vector Sink” block to plot the output vectors of data after adjusting the “Vector Size” parameter to “FFT vector length”.
 
 ## References
-[1] M. M. Al-Zubi and M.-S. Alouini, "Narrowband Communication in TVWS Using Software Defined Radio for IoT Applications: Experimental Demonstration and Verification,", 2024.
+
