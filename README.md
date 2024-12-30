@@ -14,7 +14,7 @@ Benchmark Test Block is a flexible and easy-to-use benchmark module that can eva
 •	The benchmark block will output performance metrics after approximately 5 seconds of completing the transmission process by the transmitter. 
 
 ## Installation
-Use the fellowing code to build and install the Benchmark Test block to GNU Radio:
+Use the following code to build and install the Benchmark Test block to GNU Radio:
 ```
 git clone https://github.com/muneer85/gr-benchmark.git
 cd gr-benchmark
